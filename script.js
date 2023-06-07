@@ -13,7 +13,8 @@ document.querySelectorAll(".list-card").forEach((item) => {
 
 	function createPlaceholder(element, mouseY) {
 		let elementBounds = element.getBoundingClientRect();
-		if (element.classList.contains("list-card")) {
+		if (element.closest(".list-card")) {
+			element = element.closest(".list-card");
 			placeholder.getBoundingClientRect().top > elementBounds.top
 				? element.insertAdjacentElement("beforebegin", placeholder)
 				: element.insertAdjacentElement("afterend", placeholder);
@@ -85,5 +86,4 @@ document.querySelector(".add-list").onclick = function (e) {
 	list.appendChild(listContent);
 	let board = document.querySelector(".board");
 	board.lastElementChild.insertAdjacentElement("beforebegin", list);
-	console.log(list);
 };
