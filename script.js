@@ -1,3 +1,33 @@
+let scrollFunction = function (e) {
+	let item = e.target.parentElement;
+	let pos = {
+		// The current scroll
+		left: item.scrollLeft,
+		top: item.scrollTop,
+		// Get the current mouse position
+		x: e.clientX,
+	};
+	const mouseMoveHandler = function (e) {
+		// How far the mouse has been moved
+		const dx = e.clientX - pos.x;
+		// Scroll the element
+		item.scrollLeft = pos.left - dx;
+	};
+	const mouseUpHandler = function () {
+		document.removeEventListener("mousemove", mouseMoveHandler);
+		document.removeEventListener("mouseup", mouseUpHandler);
+		item.style.removeProperty("user-select");
+	};
+	document.addEventListener("mousemove", mouseMoveHandler);
+	document.addEventListener("mouseup", mouseUpHandler);
+};
+
+document.querySelectorAll(".list-wrapper").forEach((item) => {
+	item.onmousedown = scrollFunction;
+});
+
+document.querySelector(".add-list").onmousedown = scrollFunction;
+
 document.querySelectorAll(".list").forEach((item) => {
 	item.ondragstart = function () {
 		return false;
@@ -67,9 +97,10 @@ document.querySelectorAll(".list-card").forEach((item) => {
 	};
 });
 
-document.querySelector(".add-list").onclick = function (e) {
+document.querySelector(".add-list>form").onclick = function (e) {
 	let list = document.createElement("div");
 	list.classList.add("list", "list-wrapper");
+	list.onmousedown = scrollFunction;
 	let listContent = document.createElement("div");
 	listContent.classList.add("list", "list-content");
 	let listHeader = document.createElement("div");

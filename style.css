@@ -27,11 +27,8 @@ body {
   user-select: none;
 }
 
-.add-list {
-  cursor: pointer;
-}
-
 .add-list>form {
+  cursor: pointer;
   border-radius: 10px;
   padding: 15px;
   background-color: burlywood;
@@ -42,6 +39,7 @@ body {
   border-radius: 10px;
   background-color: burlywood;
   max-height: 100%;
+  pointer-events: all;
 }
 
 .list-header {
