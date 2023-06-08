@@ -43,8 +43,11 @@ body {
 .list-content, .add-list-content {
   border-radius: 10px;
   background-color: burlywood;
+  height: fit-content;
   max-height: 100%;
   pointer-events: all;
+  display: flex;
+  flex-direction: column;
 }
 
 .list-header {
@@ -62,9 +65,8 @@ body {
 }
 
 .list-cards {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .list-card {
