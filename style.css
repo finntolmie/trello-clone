@@ -1,6 +1,7 @@
 body {
   margin: 0;
   padding: 0;
+  overflow-y: hidden;
 }
 
 /* .root {
@@ -10,16 +11,16 @@ body {
 
 .board {
   box-sizing: border-box;
+  padding: 20px;
   background-color: rgba(0, 255, 0, 0.5);
   min-width: 100vw;
   height: 100vh;
-  padding: 20px;
   display: flex;
   flex-direction: row;
-  overflow: auto;
+  overflow-x: auto;
 }
 
-.list-wrapper, .add-list {
+.list-wrapper, .add-list-wrapper {
   box-sizing: border-box;
   min-width: 272px;
   height: 100%;
@@ -27,15 +28,19 @@ body {
   user-select: none;
 }
 
-.add-list>form {
-  cursor: pointer;
-  border-radius: 10px;
+.add-list-content {
   padding: 15px;
-  background-color: burlywood;
-  max-height: 100%;
 }
 
-.list-content {
+.add-list-content>form {
+  display: none;
+}
+
+.list-compose>form {
+  display: none;
+}
+
+.list-content, .add-list-content {
   border-radius: 10px;
   background-color: burlywood;
   max-height: 100%;
@@ -91,4 +96,15 @@ body {
   margin: 5px;
   padding: 10px;
   background-color: gray;
+}
+
+.viewport {
+  position: absolute;
+  box-sizing: border-box;
+  background-color: transparent;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  pointer-events: none;
 }

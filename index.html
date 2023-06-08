@@ -5,98 +5,26 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="stylesheet" href="style.css" />
-		<script src="script.js" defer></script>
+		<script src="scrollable.js" defer type="module"></script>
+		<script src="moveitem.js" defer type="module"></script>
+		<script src="additem.js" defer type="module"></script>
+		<script src="addlist.js" defer type="module"></script>
 		<title>Document</title>
 	</head>
 	<body>
 		<div class="root">
 			<div class="board">
-				<div class="list list-wrapper">
-					<div class="list list-content">
-						<div class="list list-header">list</div>
-						<div class="list list-cards">
-							<div class="list list-card">
-								<div class="list card-content">card</div>
-							</div>
-							<div class="list list-card">
-								<div class="list card-content">card</div>
-							</div>
-							<div class="list list-card">
-								<div class="list card-content">card</div>
-							</div>
-						</div>
-						<div class="list list-compose">Add new item</div>
-					</div>
-				</div>
-				<div class="list list-wrapper">
-					<div class="list list-content">
-						<div class="list list-header">list2</div>
-						<div class="list list-cards">
-							<div class="list list-card">
-								<div class="list card-content">card</div>
-							</div>
-							<div class="list list-card">
-								<div class="list card-content">card</div>
-							</div>
-						</div>
-						<div class="list list-compose">Add new item</div>
-					</div>
-				</div>
-				<div class="list list-wrapper">
-					<div class="list list-content">
-						<div class="list list-header">list</div>
-						<div class="list list-cards">
-							<div class="list list-card">
-								<div class="list card-content">card</div>
-							</div>
-							<div class="list list-card">
-								<div class="list card-content">card</div>
-							</div>
-							<div class="list list-card">
-								<div class="list card-content">card</div>
-							</div>
-						</div>
-						<div class="list list-compose">Add new item</div>
-					</div>
-				</div>
-				<div class="list list-wrapper">
-					<div class="list list-content">
-						<div class="list list-header">list2</div>
-						<div class="list list-cards">
-							<div class="list list-card">
-								<div class="list card-content">card</div>
-							</div>
-							<div class="list list-card">
-								<div class="list card-content">card</div>
-							</div>
-						</div>
-						<div class="list list-compose">Add new item</div>
-					</div>
-				</div>
-				<div class="list list-wrapper">
-					<div class="list list-content">
-						<div class="list list-header">list</div>
-						<div class="list list-cards">
-							<div class="list list-card">
-								<div class="list card-content">card</div>
-							</div>
-							<div class="list list-card">
-								<div class="list card-content">card</div>
-							</div>
-							<div class="list list-card">
-								<div class="list card-content">card</div>
-							</div>
-						</div>
-						<div class="list list-compose">Add new item</div>
-					</div>
-				</div>
-				<div class="add-list">
-					<form>
+				<div class="add-list-wrapper">
+					<div class="add-list-content">
 						<a href="#" class="open-add-list">
 							<span>Add another list</span>
 						</a>
-					</form>
+						<form class="add-list-form">
+							<input type="text" name="list-name" id="list-name" />
+						</form>
+					</div>
 				</div>
+				<div class="viewport"></div>
 			</div>
 		</div>
 	</body>
