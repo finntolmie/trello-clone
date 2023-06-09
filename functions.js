@@ -51,7 +51,6 @@ export function makeMovable(item) {
 		let elementBounds = element.getBoundingClientRect();
 		if (element.closest(".list-card")) {
 			element = element.closest(".list-card");
-			console.log(element);
 			placeholder.getBoundingClientRect().top > elementBounds.top
 				? element.insertAdjacentElement("beforebegin", placeholder)
 				: element.insertAdjacentElement("afterend", placeholder);
