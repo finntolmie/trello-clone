@@ -22,7 +22,8 @@ body {
 
 .list-wrapper, .add-list-wrapper {
   box-sizing: border-box;
-  min-width: 272px;
+  width: 272px;
+  max-width: 272px;
   height: 100%;
   margin: 0 6px;
   user-select: none;
@@ -53,6 +54,7 @@ body {
 .list-header {
   padding: 10px;
   margin-bottom: 5px;
+  word-wrap: break-word;
 }
 
 .list-composer, .list-placeholder {
@@ -98,6 +100,7 @@ body {
   margin: 5px;
   padding: 10px;
   background-color: gray;
+  word-wrap: break-word;
 }
 
 .viewport {

@@ -30,6 +30,7 @@ export function makeMovable(item) {
 	let board = item.closest(".board");
 	let viewport = board.querySelector(".viewport").getBoundingClientRect();
 	let placeholder = document.createElement("div");
+	placeholder.style.hieght = item.style.height;
 	let mouseHeld = false;
 	placeholder.classList.add("list-placeholder");
 	item.ondragstart = function () {
@@ -50,6 +51,7 @@ export function makeMovable(item) {
 		let elementBounds = element.getBoundingClientRect();
 		if (element.closest(".list-card")) {
 			element = element.closest(".list-card");
+			console.log(element);
 			placeholder.getBoundingClientRect().top > elementBounds.top
 				? element.insertAdjacentElement("beforebegin", placeholder)
 				: element.insertAdjacentElement("afterend", placeholder);
@@ -101,7 +103,7 @@ export function makeMovable(item) {
 		}
 
 		function onLetGo() {
-			placeholder.insertAdjacentElement("beforebegin", item);
+			placeholder.insertAdjacentElement("afterend", item);
 			placeholder.remove();
 			item.classList.remove("list-card-dragging");
 			mouseHeld = false;
@@ -131,11 +133,7 @@ function submitItemForm(e) {
 	let itemName = e.target.firstElementChild.value;
 	let card = document.createElement("div");
 	card.classList.add("list", "list-card");
-	card.innerHTML = `
-    <div class="list list-card">
-      <div class="list card-content">${itemName}</div>
-    </div>
-  `;
+	card.innerHTML = `<div class="list card-content">${itemName}</div>`;
 	let list = e.target.closest(".list-content").querySelector(".list-cards");
 	list.appendChild(card);
 	makeMovable(card);
